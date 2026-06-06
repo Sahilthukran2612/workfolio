@@ -66,8 +66,8 @@ export default function Home() {
         <div className="mx-auto w-full max-w-[var(--container-width)]">
           <div className="relative flex max-lg:flex-col max-lg:justify-center">
             {/* Left Column: Info and Project List */}
-            <div className="min-w-[350px] lg:w-[40%] max-lg:min-w-0 max-lg:mb-12">
-              <header className="sticky top-0 z-50 mb-6 pt-[var(--top-offset)] max-lg:static max-lg:mb-6 max-lg:pt-12 bg-background/80 backdrop-blur-md pb-6 lg:bg-transparent lg:backdrop-blur-none">
+            <div className="min-w-[350px] lg:w-[40%] max-lg:contents">
+              <header className="sticky top-0 z-50 mb-6 pt-[var(--top-offset)] max-lg:static max-lg:mb-6 max-lg:pt-12 bg-background/80 backdrop-blur-md pb-6 lg:bg-transparent lg:backdrop-blur-none max-lg:order-1">
                 <div className="relative z-20 max-w-md">
                   <h1 className="mb-1 text-3xl lg:text-4xl leading-tight font-medium tracking-tight">
                     Sahil Thukran
@@ -80,7 +80,7 @@ export default function Home() {
               </header>
 
               {/* Project List */}
-              <div className="relative z-10 flex flex-col gap-2 h-fit  w-full max-w-[400px] ">
+              <div className="relative z-90 flex flex-col gap-2 h-fit  w-full max-w-[400px] max-lg:order-3 -top-20 sm:top-0">
                 {projects.map((project) => {
                   const isActive = activeProject.id === project.id;
 
@@ -136,7 +136,7 @@ export default function Home() {
             </div>
 
             {/* Right Column: Display Stage */}
-            <div className="display-container lg:absolute top-0 bottom-0 right-0 lg:w-[55%] max-lg:w-full    ">
+            <div className="display-container lg:absolute top-0 bottom-0 right-0 lg:w-[55%] max-lg:w-full max-lg:order-2 max-lg:mb-12">
               <div className="display-inner lg:sticky top-0 flex w-full flex-col items-center justify-start pt-12 lg:pt-(--top-offset) lg:h-screen ">
                 <div className="relative flex w-full max-w-[550px] flex-col items-center ">
                   {/* Display Screen */}
@@ -186,7 +186,7 @@ export default function Home() {
                                 type: "tween",
                                 ease: "linear",
                               }}
-                              className={`rounded-[2px]  inset-0 w-full h-full   flex items-center justify-center`}
+                              className={`relative rounded-[2px]  inset-0 w-full h-full   flex items-center justify-center`}
                             >
                               <Image
                                 src={
@@ -243,7 +243,7 @@ export default function Home() {
       </div>
 
       {/* Fixed Bottom Footer / Controls */}
-      <div className="fixed bottom-0 left-0 right-0 p-6 flex items-center justify-end gap-10 z-50 pointer-events-none">
+      <div className="fixed bottom-0 left-0 right-0 px-6 py-2  flex items-center justify-end gap-10 z-100 pointer-events-none bg-background/20 backdrop-blur-xs border-t border-blue-800/10">
         <div className="pointer-events-auto flex items-center gap-6 text-xs font-medium text-secondary">
           <button
            
@@ -274,7 +274,7 @@ export default function Home() {
           </a>
         </div>
 
-        <div className="pointer-events-auto flex h-9 items-center gap-1 rounded-xl bg-neutral-800/50 dark:bg-neutral-200/50 p-1 backdrop-blur-md border border-black/5 dark:border-white/5">
+        <div className="pointer-events-auto flex h-9 items-center gap-1 rounded-lg  p-1 backdrop-blur-md border border-black/5 dark:border-white/5">
           <button
             onClick={() => setTheme("light")}
             className={`flex size-7 cursor-pointer items-center justify-center rounded-lg transition-colors ${mounted && theme === "light" ? "bg-white shadow-sm text-black" : "text-tertiary hover:text-primary"}`}
