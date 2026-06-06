@@ -22,7 +22,7 @@ const unicaOne = Unica_One({
 });
 
 export const metadata: Metadata = {
-  title: 'Sahil - Creative Web Developer',
+  title: 'Sahil - Creative Designer and Dev',
   description: 'Explore the portfolio of Sahil, a creative web developer specializing in crafting immersive, high-performance digital experiences with modern technologies.',
 };
 
