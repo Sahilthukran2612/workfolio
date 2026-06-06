@@ -1,0 +1,439 @@
+/* Hero Section styles */
+.heroSection {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  position: relative;
+  background-color: var(--background);
+}
+
+.heroWrapper {
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  position: relative;
+  overflow: hidden;
+}
+
+@media (max-width: 480px) {
+  .heroWrapper {
+    height: 100svh;
+  }
+}
+
+/* Central Title Brackets HUD */
+.h1Wrapper {
+  text-align: center;
+  --pos-left-right: 7rem;
+  will-change: filter, opacity;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 34rem;
+  min-height: 6.4rem;
+  padding: 1.6rem 4.4rem 2.2rem;
+  display: flex;
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  border-radius: var(--border-radius-xs);
+}
+
+.h1Wrapper::before,
+.h1Wrapper::after {
+  content: "";
+  aspect-ratio: 1/4;
+  z-index: 1;
+  width: 16px;
+  height: 100%;
+  top: 0;
+  left: 1rem;
+  background: url(/icons/hero-bracket.svg) 0 0/contain no-repeat;
+  position: absolute;
+}
+
+.h1Wrapper::after {
+  left: initial;
+  right: 1rem;
+  transform: rotate(180deg); /* mirror right bracket */
+}
+
+.h1Intro {
+  font-family: var(--font-dm-mono), monospace;
+  font-size: var(--font-xxs);
+  letter-spacing: 0.1em;
+  opacity: 0.5;
+  margin-bottom: 0.8rem;
+}
+
+.h1Desc {
+  font-family: var(--font-unica-one), sans-serif;
+  font-size: var(--font-sm);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* Page Entry Loading Curtain */
+.transitionCurtain {
+  background-color: var(--background);
+  z-index: 9999;
+  transform-origin: top;
+  pointer-events: none;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  transform: scaleY(0);
+}
+
+/* Giant "Creative dev" Layout */
+.contentWrapper {
+  width: 100%;
+  margin-top: auto;
+}
+
+.titleContent {
+  font-family: var(--font-unica-one), sans-serif;
+  letter-spacing: -0.08em;
+  width: 100%;
+  padding-bottom: var(--spacing-lg);
+  --shadow-width: 1.5px;
+  text-shadow: 
+    var(--shadow-width) var(--shadow-width) var(--shadow-color),
+    calc(var(--shadow-width)*2) calc(var(--shadow-width)*2) var(--shadow-color),
+    calc(var(--shadow-width)*3) calc(var(--shadow-width)*3) var(--shadow-color);
+  grid-template-columns: auto auto auto;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14vw;
+  display: grid;
+  line-height: 0.95;
+}
+
+.creativeText,
+.devText {
+  padding-top: var(--spacing-md);
+  cursor: default;
+  will-change: filter, opacity;
+  color: var(--foreground);
+}
+
+.creativeWrapper {
+  display: flex;
+}
+
+.heroImageWrapper {
+  aspect-ratio: 4/3;
+  flex-shrink: 0;
+  width: 22vw;
+  height: auto;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--border-radius-md);
+  background: linear-gradient(135deg, #101318 0%, #202020 100%);
+}
+
+.heroImageWrapper::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.05) 0%, transparent 60%);
+}
+
+.devText {
+  margin-left: -0.5vw;
+  padding-right: 0.7vw;
+  display: flex;
+}
+
+@media (max-width: 768px) {
+  .titleContent {
+    padding-bottom: var(--spacing-xl);
+    grid-template-columns: auto auto;
+    font-size: 24vw;
+  }
+  .creativeWrapper {
+    grid-column: 1 / -1;
+  }
+  .heroImageWrapper {
+    aspect-ratio: 14/9;
+    width: 44vw;
+  }
+}
+
+@media (max-width: 480px) {
+  .h1Wrapper {
+    width: 26rem;
+  }
+  .titleContent {
+    font-size: 22vw;
+  }
+}
+
+/* About Me section layouts */
+.aboutMe {
+  margin-top: 14rem;
+  padding-bottom: 8rem;
+  position: relative;
+}
+
+.aboutMeContent1,
+.aboutMeContent2 {
+  font-size: 3.4rem;
+  font-weight: var(--font-regular);
+  line-height: 1.4;
+  color: var(--foreground);
+  letter-spacing: -0.02em;
+}
+
+.aboutMeContent1 p,
+.aboutMeContent2 p {
+  font-family: var(--font-manrope), sans-serif;
+  line-height: 1.4;
+}
+
+.aboutMeContent1 {
+  padding-bottom: 12rem;
+}
+
+.aboutMeContent2 {
+  padding-top: 12rem;
+}
+
+@media (max-width: 768px) {
+  .aboutMe {
+    margin-top: 8rem;
+  }
+  .aboutMeContent1 {
+    padding-bottom: 6rem;
+  }
+  .aboutMeContent2 {
+    padding-top: 6rem;
+  }
+  .aboutMeContent1 p,
+  .aboutMeContent2 p {
+    font-size: 2.4rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .aboutMeContent1 p,
+  .aboutMeContent2 p {
+    font-size: 2rem;
+  }
+}
+
+/* Footer layouts */
+.footer {
+  margin-top: 16.8rem;
+  border-top: none;
+  background-color: var(--background);
+  padding: 8rem 0;
+}
+
+@media (max-width: 768px) {
+  .footer {
+    margin-top: 10rem;
+    padding: 6rem 0;
+  }
+}
+
+.descriptionWrapper {
+  flex-direction: column;
+  gap: 4.8rem;
+  display: flex;
+}
+
+.footerDescription {
+  font-size: 3.2rem;
+  line-height: 1.35;
+  color: var(--foreground);
+  font-family: var(--font-manrope), sans-serif;
+  letter-spacing: -0.01em;
+}
+
+@media (max-width: 768px) {
+  .footerDescription {
+    font-size: 2.4rem;
+  }
+}
+
+.workTogether {
+  margin-top: 2rem;
+}
+
+.externalLink {
+  width: fit-content;
+  align-items: center;
+  gap: 1.2rem;
+  display: flex;
+  font-family: var(--font-dm-mono), monospace;
+  font-size: var(--font-sm);
+  cursor: pointer;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.externalLink:hover {
+  opacity: 1;
+}
+
+.externalLink::before {
+  content: url(/icons/nav-bracket.svg);
+  margin-right: 0.6rem;
+  transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.externalLink::after {
+  content: url(/icons/nav-bracket.svg);
+  margin-left: 0.6rem;
+  transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  display: inline-block;
+  transform: rotateY(180deg);
+}
+
+.externalLink:hover::before {
+  transform: translate(-8px);
+}
+
+.externalLink:hover::after {
+  transform: translate(8px) rotateY(180deg);
+}
+
+.arrowIconWrapper {
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  width: 14px;
+  height: 14px;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+}
+
+.arrowIcon {
+  width: 14px;
+  height: 14px;
+  transition: transform 0.3s ease-out;
+}
+
+.externalLink:hover .arrowIcon {
+  transform: translateY(-18px);
+}
+
+.footerLine {
+  background: rgba(255, 255, 255, 0.15);
+  width: 100%;
+  height: 1px;
+  margin-top: 14rem;
+}
+
+@media (max-width: 768px) {
+  .footerLine {
+    margin-top: 8rem;
+  }
+}
+
+/* Info links footer grid */
+.infoLinksWrapper {
+  margin-top: 4.8rem;
+}
+
+@media (max-width: 768px) {
+  .infoLinksWrapper {
+    flex-direction: column;
+    display: flex;
+    gap: 3.2rem;
+  }
+}
+
+.items {
+  flex-direction: column;
+  gap: 1.6rem;
+  display: flex;
+}
+
+.item {
+  font-family: var(--font-dm-mono), monospace;
+  font-size: var(--font-xxs);
+  color: var(--foreground);
+  opacity: 0.5;
+  transition: opacity 0.3s ease-out;
+}
+
+.item:hover {
+  opacity: 1 !important;
+}
+
+.time,
+.designer {
+  pointer-events: none;
+}
+
+@media (max-width: 768px) {
+  .time {
+    margin-top: 1.6rem;
+  }
+}
+
+.rekhchand {
+  pointer-events: all;
+  text-decoration: underline;
+}
+
+.showGrid {
+  cursor: pointer;
+  align-items: center;
+  gap: 0.8rem;
+  display: flex;
+  user-select: none;
+}
+
+.showGridIcon {
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
+
+.showGrid:hover .showGridIcon {
+  opacity: 1;
+}
+
+/* Giant Footer TYPOGRAPHY LOGO */
+.footerLogoWrapper {
+  justify-content: center;
+  padding-top: 16rem;
+  padding-bottom: 2rem;
+  display: flex;
+}
+
+.footerLogoText {
+  width: 100%;
+  text-align: center;
+  font-family: var(--font-unica-one), sans-serif;
+  font-size: 15vw;
+  line-height: 0.9;
+  letter-spacing: -0.05em;
+  color: var(--foreground);
+  opacity: 0.08;
+  user-select: none;
+  border-bottom: 1px solid rgba(255,255,255,0.03);
+  padding-bottom: 2rem;
+}
+
+@media (max-width: 768px) {
+  .footerLogoWrapper {
+    padding-top: 10rem;
+  }
+}
