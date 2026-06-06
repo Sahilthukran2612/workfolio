@@ -154,6 +154,7 @@ export default function Home() {
                               : "/dark-v4.avif"
                           }
                           fill
+                          sizes="(max-width: 768px) 100vw, 550px"
                           style={{ width: "100%", height: "100%" }}
                           alt="display background"
                           className="object-cover object-top w-full h-full"
@@ -192,6 +193,7 @@ export default function Home() {
                                   activeProject.imageUrl || "/placeholder.png"
                                 }
                                 fill
+                                sizes="(max-width: 768px) 75vw, 412px"
                                 style={{ width: "100%", height: "100%" }}
                                 alt={`${activeProject.title} preview`}
                                 className="object-cover object-top  w-full h-full rounded-(--inner-display-radius) "
