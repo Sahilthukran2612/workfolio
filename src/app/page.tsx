@@ -5,21 +5,12 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useTheme } from 'next-themes';
 import { Moon, Sun, ExternalLink } from 'lucide-react';
 import Image from 'next/image';
+import { toast, Toaster } from 'sonner';
 
 // Project Data
 const projects = [
   {
     id: 1,
-    title: "Ygate Solutions",
-    description: "Corporate Website",
-    details:
-      "A modern, professional website designed and developed for Ygate Solutions, featuring comprehensive service details and contact workflows.",
-    imageUrl: "/YGateSolutions.png",
-    url: "https://www.ygatesolutions.com/",
-    type: "Desktop",
-  },
-  {
-    id: 2,
     title: "Pink City Mouth Fresheners",
     description: "E-commerce Website",
     details:
@@ -29,7 +20,7 @@ const projects = [
     type: "Desktop",
   },
   {
-    id: 3,
+    id: 2,
     title: "Aethery",
     description: "E-commerce Website",
     details:
@@ -39,13 +30,24 @@ const projects = [
     type: "Mobile",
   },
   {
-    id: 4,
+    id: 3,
     title: "Unisphere",
     description: "Student and Faculty Portal for Universities",
     details:
       "An admin dashboard template built with React, and Tailwind CSS. Open-sourced for the community.",
     url: "https://play.google.com/store/search?q=unisphere&c=apps&hl=en_IN",
     imageUrl: "/Unisphere.png",
+    type: "Desktop",
+  },
+ 
+  {
+    id: 4,
+    title: "Ygate Solutions",
+    description: "Corporate Website",
+    details:
+      "A modern, professional website designed and developed for Ygate Solutions, featuring comprehensive service details and contact workflows.",
+    imageUrl: "/YGateSolutions.png",
+    url: "https://www.ygatesolutions.com/",
     type: "Desktop",
   },
 ];
@@ -160,7 +162,7 @@ export default function Home() {
                           className="object-cover object-top w-full h-full"
                         />
                         <div
-                          className={`mx-auto -translate-y-1/2 top-1/2 w-9/12 h-9/12 p-2 relative rounded-(--inner-display-radius) overflow-hidden  bg-white/20 backdrop-blur-sm `}
+                          className={`mx-auto -translate-y-1/2 top-1/2 w-11/12 h-11/12 p-2 relative rounded-(--inner-display-radius) overflow-hidden  bg-white/20 backdrop-blur-sm `}
                         >
                           <AnimatePresence mode="wait">
                             <motion.div
@@ -245,13 +247,16 @@ export default function Home() {
       {/* Fixed Bottom Footer / Controls */}
       <div className="fixed bottom-0 left-0 right-0 px-6 py-2  flex items-center justify-end gap-10 z-100 pointer-events-none bg-background/20 backdrop-blur-xs border-t border-blue-800/10">
         <div className="pointer-events-auto flex items-center gap-6 text-xs font-medium text-secondary">
+          <Toaster />
           <button
-           
             className="hover:text-primary transition-colors"
-            onClick={() =>{
+            onClick={() => {
               setOnCopy(true);
-              navigator.clipboard.writeText("thukran.sahil26@gmail.com")
-               setTimeout(() => {setOnCopy(false) }, 1200);
+              navigator.clipboard.writeText("thukran.sahil26@gmail.com");
+              setTimeout(() => {
+                setOnCopy(false);
+                toast("Email Copied!")
+              }, 1200);
             }}
           >
             {onCopy ? "Copied!" : "Email"}
@@ -260,7 +265,7 @@ export default function Home() {
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-primary transition-colors"
-            href="https://github.com"
+            href="https://github.com/Sahilthukran2612"
           >
             GitHub
           </a>
@@ -268,7 +273,7 @@ export default function Home() {
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-primary transition-colors"
-            href="https://linkedin.com"
+            href="https://www.linkedin.com/in/sahil-kumar-046a19296/"
           >
             LinkedIn
           </a>
